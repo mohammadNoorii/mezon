@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عروس‌های ما | مزون عروس سپید</title>
+  <meta name="description" content="گالری عروس‌های مزون سپید در تالار، باغ و فضای باز، همراه نظرات عروس‌ها درباره پرو، دوخت و قیمت.">
+  <meta name="theme-color" content="#F7EFE2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="عروس‌های ما | مزون عروس سپید">
+  <meta property="og:description" content="گالری عروس‌های مزون سپید در تالار، باغ و فضای باز، همراه نظرات عروس‌ها درباره پرو، دوخت و قیمت.">
+  <meta property="og:image" content="images/hero.webp">
+  <link rel="preload" href="fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="dist/style.css">
+  <script src="js/images.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</head>
+<body class="pb-20 md:pb-0">
+  <a href="#main" class="sr-only top-0 start-0 focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[100] focus:rounded-full focus:bg-ivory focus:px-4 focus:py-2">رفتن به محتوای اصلی</a>
+
+  <!-- ۱. نوار اعلان -->
+  <div id="announce" class="relative z-50 bg-blush px-10 py-2 text-center text-sm text-ink">
+    <p>✨ پرو اول رایگان + <strong>۱۰٪ تخفیف</strong> برای عروس‌های فصل بهار</p>
+    <button id="announce-close" class="absolute top-1/2 end-3 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full hover:bg-ivory/60" aria-label="بستن اعلان">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <!-- ۲. هدر چسبان -->
+  <header class="site-header sticky top-0 z-40 transition-all duration-500 ease-silk">
+    <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
+      <a href="index.html" class="flex items-baseline gap-2" aria-label="مزون عروس سپید، صفحه اصلی">
+        <span class="text-[28px] font-light tracking-tight">سپید</span>
+        <span class="hidden text-xs text-ink-soft sm:inline">مزون عروس</span>
+      </a>
+      <nav class="hidden lg:block" aria-label="منوی اصلی">
+        <ul class="flex items-center gap-8 text-[15px] font-semibold">
+          <li><a class="nav-link transition hover:text-gold-text" href="collection.html">کالکشن</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="services.html">خدمات</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="about.html">درباره ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="brides.html" aria-current="page">عروس‌های ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="contact.html">تماس</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="collection.html?fav=1" class="relative grid h-11 w-11 place-items-center rounded-full transition hover:bg-pearl" aria-label="علاقه‌مندی‌های من">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.4C1.4 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.6 3.1 4.3 6.6-1.8 4.8-9.3 9.4-9.3 9.4z"/></svg>
+          <span class="fav-count absolute -top-0.5 -end-0.5 hidden min-w-[20px] rounded-full bg-rose px-1 text-center text-[11px] font-bold leading-5 text-ink-deep">۰</span>
+        </a>
+        <a href="booking.html" class="btn-gold hidden !px-5 !py-2.5 md:inline-flex">رزرو پرو</a>
+        <button id="menu-toggle" class="grid h-11 w-11 place-items-center rounded-full hover:bg-pearl lg:hidden" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M10 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- منوی تمام‌صفحه موبایل -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden bg-ivory" role="dialog" aria-modal="true" aria-label="منو">
+    <div class="ph ph-2 absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="relative flex h-full flex-col px-6 py-5">
+      <div class="flex items-center justify-between">
+        <span class="text-[28px] font-light">سپید</span>
+        <button id="menu-close" class="grid h-11 w-11 place-items-center rounded-full bg-pearl" aria-label="بستن منو">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <nav class="mt-14 flex-1" aria-label="منوی موبایل">
+        <ul class="space-y-6 text-2xl font-light">
+          <li><a href="collection.html">کالکشن</a></li>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="about.html">درباره ما</a></li>
+          <li><a href="brides.html">عروس‌های ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </nav>
+      <a href="booking.html" class="btn-gold w-full">نوبت پروم رو رزرو کن</a>
+      <p class="mt-3 text-center text-sm text-ink-soft">پرو اول رایگان، بدون هیچ تعهدی</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="relative -mt-[72px] overflow-hidden" aria-labelledby="page-title">
+      <div class="ph ph-3 absolute inset-0"><img src="images/page-brides.webp" alt="" fetchpriority="high" onerror="imgFallback(this)"></div>
+      <div class="absolute inset-0 bg-gradient-to-l from-ivory via-ivory/85 to-ivory/30" aria-hidden="true"></div>
+      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-24 md:pt-44">
+        <nav aria-label="مسیر صفحه" class="mb-6 text-sm text-ink-soft"><a href="index.html" class="hover:text-ink">خانه</a> <span aria-hidden="true">/</span> <span aria-current="page" class="text-ink">عروس‌های ما</span></nav>
+        <p class="eyebrow">لحظه‌هایی که ماندند</p>
+        <h1 id="page-title" class="max-w-2xl text-[32px] font-light leading-snug md:text-[52px]">عروس‌های سپید</h1>
+        <p id="page-lead" class="mt-5 max-w-xl text-ink-soft md:text-lg">بیش از ۸۵۰ عروس روز مهمشان را با لباس سپید جشن گرفته‌اند. اینجا گوشه‌ای از آن لحظه‌هاست.</p>
+      </div>
+    </section>
+
+    <section class="border-y border-line bg-ivory" aria-label="آمار">
+      <dl class="mx-auto grid max-w-5xl grid-cols-3 gap-4 px-5 py-10 text-center">
+        <div class="flex flex-col-reverse"><dt class="text-sm text-ink-soft">عروس خوشحال</dt><dd class="text-3xl font-bold md:text-4xl" data-count="850" data-suffix="+">۸۵۰+</dd></div>
+        <div class="flex flex-col-reverse"><dt class="text-sm text-ink-soft">امتیاز از ۵</dt><dd class="text-3xl font-bold md:text-4xl">۴٫۹</dd></div>
+        <div class="flex flex-col-reverse"><dt class="text-sm text-ink-soft">پیشنهاد به دوستان</dt><dd class="text-3xl font-bold md:text-4xl" data-count="96" data-suffix="٪">۹۶٪</dd></div>
+      </dl>
+    </section>
+
+    <section class="bg-ivory py-20 md:py-28" aria-labelledby="gal-title">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <div class="reveal flex flex-wrap items-end justify-between gap-6">
+          <div><p class="eyebrow">گالری مراسم</p><h2 id="gal-title" class="section-title text-start">از تالار تا باغ</h2></div>
+          <div class="snap-row !gap-2 !pb-0" role="group" aria-label="فیلتر مکان مراسم">
+            <button class="filter-chip" data-gal="all" aria-pressed="true">همه</button>
+            <button class="filter-chip" data-gal="hall" aria-pressed="false">تالار</button>
+            <button class="filter-chip" data-gal="garden" aria-pressed="false">باغ</button>
+            <button class="filter-chip" data-gal="outdoor" aria-pressed="false">فضای باز</button>
+          </div>
+        </div>
+        <div id="gallery" class="masonry mt-12 transition-opacity duration-300">
+          <button data-lightbox data-tag="garden" data-src="images/gallery-01.webp" data-caption="عروس در باغ با دسته گل" class="ph ph-1 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-01.webp" alt="عروس در باغ با دسته گل" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="garden" data-src="images/gallery-02.webp" data-caption="زوج در باغ" class="ph ph-2 block aspect-square w-full rounded-2xl"><img src="images/gallery-02.webp" alt="زوج در باغ" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-03.webp" data-caption="دسته گل عروس در دست" class="ph ph-3 block aspect-[4/5] w-full rounded-2xl"><img src="images/gallery-03.webp" alt="دسته گل عروس در دست" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="outdoor" data-src="images/gallery-04.webp" data-caption="عروس در غروب" class="ph ph-4 block aspect-[3/5] w-full rounded-2xl"><img src="images/gallery-04.webp" alt="عروس در غروب" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="outdoor" data-src="images/gallery-05.webp" data-caption="لحظه شاد زوج" class="ph ph-1 block aspect-square w-full rounded-2xl"><img src="images/gallery-05.webp" alt="لحظه شاد زوج" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-06.webp" data-caption="زوج با دسته گل" class="ph ph-2 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-06.webp" alt="زوج با دسته گل" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-07.webp" data-caption="عروس با تور بلند در نور" class="ph ph-3 block aspect-[4/5] w-full rounded-2xl"><img src="images/gallery-07.webp" alt="عروس با تور بلند در نور" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="outdoor" data-src="images/gallery-08.webp" data-caption="عروس با تور در طبیعت" class="ph ph-4 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-08.webp" alt="عروس با تور در طبیعت" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="outdoor" data-src="images/gallery-09.webp" data-caption="عروس کنار دریاچه" class="ph ph-1 block aspect-square w-full rounded-2xl"><img src="images/gallery-09.webp" alt="عروس کنار دریاچه" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="outdoor" data-src="images/gallery-10.webp" data-caption="زوج در ساحل" class="ph ph-2 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-10.webp" alt="زوج در ساحل" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="garden" data-src="images/gallery-11.webp" data-caption="عروس در فضای باز" class="ph ph-3 block aspect-square w-full rounded-2xl"><img src="images/gallery-11.webp" alt="عروس در فضای باز" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-12.webp" data-caption="عروس با لباس مارمید" class="ph ph-4 block aspect-[4/5] w-full rounded-2xl"><img src="images/gallery-12.webp" alt="عروس با لباس مارمید" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="garden" data-src="images/gallery-13.webp" data-caption="عروس میان درختان" class="ph ph-1 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-13.webp" alt="عروس میان درختان" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-14.webp" data-caption="دنباله بلند لباس" class="ph ph-2 block aspect-square w-full rounded-2xl"><img src="images/gallery-14.webp" alt="دنباله بلند لباس" loading="lazy" onerror="imgFallback(this)"></button>
+          <button data-lightbox data-tag="hall" data-src="images/gallery-15.webp" data-caption="عروس در نور شب" class="ph ph-3 block aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-15.webp" alt="عروس در نور شب" loading="lazy" onerror="imgFallback(this)"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-pearl py-24 md:py-28" aria-label="نظرات عروس‌ها">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <!-- اسلایدر نظرات (نمونه) -->
+        <div class="mt-20" data-slider>
+          <div class="flex items-center justify-between gap-4">
+            <h3 class="text-xl font-bold">عروس‌ها درباره سپید چه می‌گویند</h3>
+            <div class="flex gap-2">
+              <button data-prev class="slider-btn !h-11 !w-11" aria-label="نظر قبلی"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+              <button data-next class="slider-btn !h-11 !w-11" aria-label="نظر بعدی"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="snap-row mt-8" tabindex="0" aria-label="نظرات عروس‌ها">
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«با مادرم رفتیم و اصلاً عجله‌مان نکردند. لباس مهتاب را که پوشیدم، مادرم گریه کرد. همان را گرفتیم.»</blockquote><figcaption class="mt-5 text-sm"><strong>نگار</strong> · <span class="text-ink-soft">۱۲ مهر ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«دنبال لباس پوشیده‌ای بودم که ساده نباشد. ترمه دقیقاً همان بود؛ تنظیمش هم بی‌نقص شد.»</blockquote><figcaption class="mt-5 text-sm"><strong>فاطمه</strong> · <span class="text-ink-soft">۲۸ شهریور ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«قیمت را از اول شفاف گفتند و هیچ هزینه اضافه‌ای نیامد. این برای ما خیلی مهم بود.»</blockquote><figcaption class="mt-5 text-sm"><strong>سارا و امیر</strong> · <span class="text-ink-soft">۳ مرداد ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«عروسی‌مان در باغ بود. مشاورشان شبنم را پیشنهاد داد و همه عکس‌ها رؤیایی شد.»</blockquote><figcaption class="mt-5 text-sm"><strong>مهسا</strong> · <span class="text-ink-soft">۱۹ تیر ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«دو ماه قبل عروسی وزنم تغییر کرد؛ بدون هزینه دوباره تنظیمش کردند.»</blockquote><figcaption class="mt-5 text-sm"><strong>الهام</strong> · <span class="text-ink-soft">۸ خرداد ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«برای حنابندان هم لباس گرفتم؛ رنگ زرشکی‌اش را همه تعریف کردند.»</blockquote><figcaption class="mt-5 text-sm"><strong>زهرا</strong> · <span class="text-ink-soft">۲ اردیبهشت ۱۴۰۵</span></figcaption></figure>
+            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«مشاور رنگ گفت آف‌وایت به پوستم بیشتر می‌آید؛ در عکس‌ها کاملاً معلوم بود.»</blockquote><figcaption class="mt-5 text-sm"><strong>نازنین</strong> · <span class="text-ink-soft">۱۵ فروردین ۱۴۰۵</span></figcaption></figure>
+          </div>
+          <div class="slider-track" aria-hidden="true"><span class="slider-thumb" data-progress></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ivory py-20" aria-labelledby="ig-title">
+      <div class="reveal mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-[2rem] bg-gradient-to-l from-blush/60 to-pearl px-8 py-10 text-center md:flex-row md:text-start">
+        <div><h2 id="ig-title" class="text-2xl font-bold">عکس‌های تازه را در اینستاگرام ببین</h2><p class="mt-2 text-ink-soft">هر هفته عروس‌های جدید، پشت صحنه کارگاه و مدل‌های تازه.</p></div>
+        <a href="https://instagram.com/" rel="noopener" class="btn-line shrink-0">صفحه اینستاگرام سپید</a>
+      </div>
+    </section>
+    <section class="relative overflow-hidden py-24 md:py-28" aria-labelledby="cta-band-title">
+      <div class="ph ph-3 absolute inset-0"><img src="images/cta-bg.webp" alt="" loading="lazy" class="blur-[2px]" onerror="imgFallback(this)"></div>
+      <div class="absolute inset-0 bg-blush/75" aria-hidden="true"></div>
+      <div class="reveal relative mx-auto max-w-2xl px-5 text-center">
+        <h2 id="cta-band-title" class="text-[26px] font-light leading-snug md:text-[40px]">عروس بعدی سپید، تو هستی؟</h2>
+        <p class="mx-auto mt-4 max-w-lg">وقت پرو خصوصی‌ات را رزرو کن تا لباس روز مهمت را با هم پیدا کنیم.</p>
+        <div class="mt-8 flex flex-col items-center gap-2"><a href="booking.html" class="btn-gold">نوبت پروم رو رزرو کن</a><span class="text-sm">پرو اول رایگان، بدون هیچ تعهدی</span></div>
+      </div>
+    </section>
+
+    <script>
+      // فیلتر گالری بر اساس مکان مراسم
+      document.addEventListener('DOMContentLoaded', () => {
+        const g = document.getElementById('gallery');
+        document.querySelectorAll('[data-gal]').forEach(b => b.addEventListener('click', () => {
+          document.querySelectorAll('[data-gal]').forEach(x => x.setAttribute('aria-pressed', x === b));
+          g.style.opacity = '0';
+          setTimeout(() => {
+            g.querySelectorAll('[data-lightbox]').forEach(it => { it.hidden = b.dataset.gal !== 'all' && it.dataset.tag !== b.dataset.gal; });
+            g.style.opacity = '1';
+          }, 250);
+        }));
+      });
+    </script>
+  </main>
+
+  <!-- ۱۵. فوتر -->
+  <footer id="contact" class="scroll-mt-20 bg-ink text-ivory/80">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4 md:px-8">
+      <div class="md:col-span-1">
+        <p class="text-3xl font-light text-ivory">سپید</p>
+        <p class="mt-3 text-sm leading-7">لحظه‌ای که برای همیشه می‌ماند. مزون لباس عروس، نامزدی و شب از سال ۱۳۹۳.</p>
+        <div class="mt-5 inline-grid h-24 w-24 place-items-center rounded-xl border border-dashed border-ivory/30 text-center text-xs">جایگاه نماد<br>اعتماد (اینماد)</div>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">نشانی و ساعات کاری</h2>
+        <address class="not-italic text-sm leading-7">تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۱۲۰، طبقه دوم <span class="text-ivory/60">(نمونه)</span></address>
+        <p class="mt-3 text-sm">شنبه تا پنج‌شنبه، ۱۰ تا ۲۰</p>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">ارتباط با ما</h2>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-ivory" href="tel:+982112345678">تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+          <li><a class="hover:text-ivory" href="https://wa.me/989120000000" rel="noopener">واتساپ</a></li>
+          <li><a class="hover:text-ivory" href="https://instagram.com/" rel="noopener">اینستاگرام</a></li>
+          <li><a class="hover:text-ivory" href="booking.html">رزرو وقت پرو</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">مسیریابی</h2>
+        <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 block aspect-[4/3] rounded-xl" aria-label="مسیریابی مزون سپید در نقشه نشان">
+          <img src="images/map.webp" alt="نقشه موقعیت مزون" loading="lazy" onerror="imgFallback(this)">
+          <span class="absolute inset-0 grid place-items-center text-sm font-semibold text-ink">📍 مسیریابی با نشان</span>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-ivory/10">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs md:flex-row md:px-8">
+        <p>© <span id="year">۱۴۰۵</span> مزون عروس سپید — همه حقوق محفوظ است.</p>
+        <p>طراحی شده توسط <a href="https://markology.ir/" class="font-semibold text-ivory hover:underline" rel="noopener">مارکولوژی</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ۱۶. دکمه شناور واتساپ (پایین چپ) -->
+  <a href="https://wa.me/989120000000" rel="noopener" class="fixed bottom-24 end-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-sage text-ink-deep shadow-silk-lg transition hover:-translate-y-1 md:bottom-6" aria-label="گفتگو در واتساپ">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+
+  <!-- نوار چسبان پایین موبایل -->
+  <nav class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-[1fr_1.6fr] gap-3 border-t border-line bg-ivory/[.97] px-4 py-3 md:hidden" aria-label="دسترسی سریع">
+    <a href="tel:+982112345678" class="btn-line !py-3">تماس</a>
+    <a href="booking.html" class="btn-gold !py-3">رزرو پرو</a>
+  </nav>
+
+  <!-- نوار مقایسه -->
+  <div id="compare-bar" class="fixed inset-x-4 bottom-24 z-30 mx-auto hidden max-w-md items-center justify-between gap-3 rounded-full bg-ink px-5 py-3 text-sm text-ivory shadow-silk-lg md:bottom-6 [&:not(.hidden)]:flex" role="region" aria-label="مقایسه لباس‌ها">
+    <span><span id="compare-count">۰</span> لباس برای مقایسه</span>
+    <span class="flex gap-2">
+      <button id="compare-clear" class="rounded-full px-3 py-1.5 text-ivory/80 hover:text-ivory">پاک کردن</button>
+      <button id="compare-open" class="rounded-full bg-gold px-4 py-1.5 font-semibold text-ink-deep">مقایسه کن</button>
+    </span>
+  </div>
+
+  <!-- مودال مقایسه -->
+  <div id="compare-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto bg-ink/40 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+    <div class="card mx-auto my-8 max-w-3xl p-6 md:p-8">
+      <div class="flex items-center justify-between">
+        <h2 id="compare-title" class="text-xl font-bold">مقایسه کنار هم</h2>
+        <button id="compare-close" class="grid h-10 w-10 place-items-center rounded-full bg-pearl" aria-label="بستن مقایسه"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div id="compare-body" class="mt-6"></div>
+    </div>
+  </div>
+
+  <!-- لایت‌باکس گالری -->
+  <div id="lightbox" class="fixed inset-0 z-[70] hidden bg-ink/90 p-4" role="dialog" aria-modal="true" aria-label="نمایش تصویر">
+    <div class="flex h-full flex-col items-center justify-center gap-4">
+      <div id="lb-figure"></div>
+      <p id="lb-caption" class="text-sm text-ivory/90"></p>
+      <div class="flex gap-3">
+        <button id="lb-prev" class="grid h-12 w-12 place-items-center rounded-full bg-ivory/15 text-ivory hover:bg-ivory/25" aria-label="تصویر قبلی"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="lb-close" class="grid h-12 w-12 place-items-center rounded-full bg-ivory/15 text-ivory hover:bg-ivory/25" aria-label="بستن"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button id="lb-next" class="grid h-12 w-12 place-items-center rounded-full bg-ivory/15 text-ivory hover:bg-ivory/25" aria-label="تصویر بعدی"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- پیام کوتاه -->
+  <div id="toast" class="pointer-events-none fixed inset-x-0 bottom-28 z-[80] mx-auto w-fit max-w-[90%] translate-y-4 rounded-full bg-ink px-5 py-2.5 text-center text-sm text-ivory opacity-0 shadow-silk-lg transition-all duration-500 ease-silk md:bottom-24" role="status" aria-live="polite"></div>
+</body>
+</html>

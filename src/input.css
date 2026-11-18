@@ -1,0 +1,138 @@
+/* ورودی Tailwind سایت «سپید» — کلاس‌های سفارشی کم و فقط جایی که لازم است */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* فونت محلی (بدون Google Fonts) */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn-Variable.woff2') format('woff2-variations'),
+       url('../fonts/Vazirmatn-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    font-size: 16px; line-height: 1.9;
+  }
+  @media (min-width: 768px) { body { font-size: 17px; } }
+  h1, h2, h3 { line-height: 1.45; }
+  ::selection { background: #EBD4CB; color: #3B3330; }
+  /* فوکوس طلایی قابل دیدن */
+  :focus-visible { outline: 2px solid #B8975A; outline-offset: 3px; border-radius: 6px; }
+  img { color: transparent; }
+}
+
+@layer components {
+  /* دکمه اصلی — تنها رنگ دعوت به اقدام: طلایی */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-[15px] font-semibold text-ink-deep
+           shadow-silk transition-all duration-500 ease-silk hover:bg-gold-deep hover:text-ivory hover:-translate-y-0.5 hover:shadow-silk-lg;
+  }
+  .btn-line {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 bg-ivory/60 px-7 py-3.5 text-[15px] font-semibold text-ink
+           transition-all duration-500 ease-silk hover:border-ink hover:bg-ivory;
+  }
+  .eyebrow { @apply mb-3 block text-sm font-semibold tracking-wide text-gold-text; }
+  .section-title { @apply text-[26px] font-bold text-ink md:text-4xl; }
+  .section-title::after {
+    content: ''; @apply mx-auto mt-4 block h-px w-16 bg-gold;
+  }
+  .section-title.text-start::after { @apply ms-0; }
+  .lead { @apply mx-auto mt-5 max-w-2xl text-ink-soft; }
+  .card { @apply rounded-2xl bg-ivory shadow-silk; }
+  .chip { @apply inline-flex items-center rounded-full bg-blush px-3 py-0.5 text-xs font-semibold text-ink; }
+
+  /* جای عکس: اگر فایل عکس هنوز در images/ نباشد، این پس‌زمینه تور نرم دیده می‌شود */
+  .ph { @apply relative overflow-hidden bg-pearl; background-image: url('../images/texture-lace.svg'), linear-gradient(160deg, #EFE4D2, #EBD4CB 70%, #E3C7BC); background-size: 180px, cover; }
+  .ph-2 { background-image: url('../images/texture-lace.svg'), linear-gradient(200deg, #F7EFE2, #EFE4D2 55%, #EBD4CB); }
+  .ph-3 { background-image: url('../images/texture-lace.svg'), linear-gradient(140deg, #EBD4CB, #EFE4D2 60%, #F7EFE2); }
+  .ph-4 { background-image: url('../images/texture-lace.svg'), linear-gradient(180deg, #EFE4D2, #E8D9C7); }
+  .ph > img { @apply absolute inset-0 h-full w-full object-cover; filter: sepia(8%) saturate(90%); }
+
+  /* ظاهر شدن آرام با اسکرول */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* کارت لباس: جابه‌جایی نرم به عکس دوم + زوم */
+  .dress-media img { transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+  .dress-media .img-b { opacity: 0; }
+  .dress-media { contain: paint; }
+  .dress-card:hover .dress-media .img-b { opacity: 1; }
+  .dress-card:hover .dress-media img { transform: scale(1.05); }
+
+  /* قلب علاقه‌مندی با انیمیشن پر شدن */
+  .heart svg path { fill: transparent; transition: fill .45s cubic-bezier(.22,1,.36,1); }
+  .heart[aria-pressed='true'] svg path { fill: #C9A39A; }
+  .heart[aria-pressed='true'] svg { animation: heart-pop .6s cubic-bezier(.22,1,.36,1); }
+  @keyframes heart-pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+  /* اسلایدر با scroll-snap */
+  .snap-row { @apply flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4; scrollbar-width: none; }
+  .snap-row::-webkit-scrollbar { display: none; }
+  /* کارت‌های ردیف افقی: اندازه بر اساس ارتفاع صفحه تا عکس و متن کارت همیشه کامل دیده شوند
+     (۲۶۰px = هدر + نام و قیمت زیر عکس + فاصله‌ها) */
+  .row-card { width: clamp(190px, calc((100svh - 260px) * 0.75), 78%); }
+  @media (min-width: 640px) { .row-card { width: clamp(200px, calc((100svh - 260px) * 0.75), 46%); } }
+  @media (min-width: 1024px) { .row-card { width: clamp(210px, calc((100svh - 260px) * 0.75), 31%); } }
+  .snap-row { cursor: grab; overscroll-behavior-x: contain; }
+  /* ردیف سنجاقی: با transform (روی GPU) حرکت می‌کند، پس نباید اسکرول یا transition روی transform داشته باشد */
+  .snap-row.is-pinned { scroll-snap-type: none; scroll-behavior: auto; overflow: visible; cursor: default;
+                        transition-property: opacity; will-change: transform; backface-visibility: hidden; }
+  .snap-row.is-wheeling { scroll-snap-type: none; scroll-behavior: auto; }
+  .snap-row.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+  .snap-row.is-dragging a, .snap-row.is-dragging img { pointer-events: none; }
+  .slider-btn { @apply grid h-12 w-12 place-items-center rounded-full border border-ink/20 transition hover:bg-ivory disabled:cursor-default disabled:opacity-30 disabled:hover:bg-transparent; }
+  .slider-track { @apply relative mt-6 h-[3px] overflow-hidden rounded-full bg-line; }
+  /* نوار پیشرفت فقط با transform جابه‌جا می‌شود (بدون layout در هر فریم) */
+  .slider-thumb { @apply absolute inset-y-0 start-0 rounded-full bg-gold; will-change: transform; }
+  .snap-row > * { @apply snap-start shrink-0; }
+
+  /* آکاردئون با انیمیشن ارتفاع */
+  .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.22,1,.36,1); }
+  .acc-panel > div { overflow: hidden; }
+  .acc-item.open .acc-panel { grid-template-rows: 1fr; }
+  .acc-item.open .acc-icon { transform: rotate(45deg); }
+
+  /* گزینه‌های آزمون */
+  .quiz-opt { @apply flex flex-col items-center gap-3 rounded-2xl border border-line bg-ivory p-5 text-center transition-all duration-500 ease-silk hover:-translate-y-1 hover:border-rose hover:shadow-silk; }
+  .quiz-opt[aria-pressed='true'] { @apply border-gold bg-blush/50 shadow-silk; }
+
+  /* گلبرگ‌های نتیجه آزمون */
+  .petal { position: absolute; top: -20px; width: 12px; height: 16px; border-radius: 80% 0 80% 0; background: #EBD4CB; opacity: .9; animation: petal-fall 3.2s cubic-bezier(.22,1,.36,1) forwards; pointer-events: none; }
+  @keyframes petal-fall { to { transform: translateY(420px) rotate(320deg); opacity: 0; } }
+
+  /* هدر */
+  /* بدون backdrop-blur: blur روی هدر ثابت در هر فریم اسکرول دوباره محاسبه می‌شود و عامل اصلی لگ است.
+     با پس‌زمینه ۹۷٪ مات، تفاوت دیده نمی‌شود. */
+  .site-header.scrolled { @apply bg-ivory/[.97] shadow-[0_8px_30px_-18px_rgba(59,51,48,0.25)]; }
+
+  /* فیلترها و فرم‌ها */
+  .filter-chip { @apply inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-ivory px-4 py-2 text-sm font-semibold transition duration-300 ease-silk hover:border-rose aria-pressed:border-gold aria-pressed:bg-blush; }
+  .field { @apply w-full rounded-xl border border-line bg-ivory px-4 py-3 transition duration-300 placeholder:text-ink-soft/70 hover:border-rose focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30; }
+  .field-label { @apply mb-2 block text-sm font-semibold; }
+  .field-err { @apply mt-1.5 block min-h-[1.25rem] text-sm text-error; }
+  .step-dot { @apply grid h-10 w-10 place-items-center rounded-full border border-line bg-ivory text-sm font-bold text-ink-soft transition duration-500 ease-silk; }
+  .step-dot[data-state='current'] { @apply border-gold bg-gold text-ink-deep shadow-silk; }
+  .step-dot[data-state='done'] { @apply border-rose bg-blush text-ink; }
+  .draw-check { stroke-dasharray: 24; stroke-dashoffset: 24; animation: draw 1s .2s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  #grid { transition: opacity .28s cubic-bezier(.22,1,.36,1); }
+  .nav-link[aria-current='page'] { @apply text-gold-text; }
+  .nav-link[aria-current='page']::after { content: ''; @apply mx-auto mt-0.5 block h-px w-4 bg-gold; }
+
+  .masonry { column-gap: 1rem; columns: 2; }
+  @media (min-width: 768px) { .masonry { columns: 3; } }
+  .masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+}
+
+/* اگر کاربر حرکت کمتر خواسته، همه انیمیشن‌ها خاموش */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+  #particles { display: none; }
+}

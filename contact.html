@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تماس با ما | مزون عروس سپید</title>
+  <meta name="description" content="تماس با مزون عروس سپید: تلفن، واتساپ، اینستاگرام، نشانی و ساعات کاری (شنبه تا پنج‌شنبه ۱۰ تا ۲۰). فرم پیام آنلاین.">
+  <meta name="theme-color" content="#F7EFE2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="تماس با ما | مزون عروس سپید">
+  <meta property="og:description" content="تماس با مزون عروس سپید: تلفن، واتساپ، اینستاگرام، نشانی و ساعات کاری (شنبه تا پنج‌شنبه ۱۰ تا ۲۰). فرم پیام آنلاین.">
+  <meta property="og:image" content="images/hero.webp">
+  <link rel="preload" href="fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="dist/style.css">
+  <script src="js/images.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</head>
+<body class="pb-20 md:pb-0">
+  <a href="#main" class="sr-only top-0 start-0 focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[100] focus:rounded-full focus:bg-ivory focus:px-4 focus:py-2">رفتن به محتوای اصلی</a>
+
+  <!-- ۱. نوار اعلان -->
+  <div id="announce" class="relative z-50 bg-blush px-10 py-2 text-center text-sm text-ink">
+    <p>✨ پرو اول رایگان + <strong>۱۰٪ تخفیف</strong> برای عروس‌های فصل بهار</p>
+    <button id="announce-close" class="absolute top-1/2 end-3 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full hover:bg-ivory/60" aria-label="بستن اعلان">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <!-- ۲. هدر چسبان -->
+  <header class="site-header sticky top-0 z-40 transition-all duration-500 ease-silk">
+    <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
+      <a href="index.html" class="flex items-baseline gap-2" aria-label="مزون عروس سپید، صفحه اصلی">
+        <span class="text-[28px] font-light tracking-tight">سپید</span>
+        <span class="hidden text-xs text-ink-soft sm:inline">مزون عروس</span>
+      </a>
+      <nav class="hidden lg:block" aria-label="منوی اصلی">
+        <ul class="flex items-center gap-8 text-[15px] font-semibold">
+          <li><a class="nav-link transition hover:text-gold-text" href="collection.html">کالکشن</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="services.html">خدمات</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="about.html">درباره ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="brides.html">عروس‌های ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="contact.html" aria-current="page">تماس</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="collection.html?fav=1" class="relative grid h-11 w-11 place-items-center rounded-full transition hover:bg-pearl" aria-label="علاقه‌مندی‌های من">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.4C1.4 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.6 3.1 4.3 6.6-1.8 4.8-9.3 9.4-9.3 9.4z"/></svg>
+          <span class="fav-count absolute -top-0.5 -end-0.5 hidden min-w-[20px] rounded-full bg-rose px-1 text-center text-[11px] font-bold leading-5 text-ink-deep">۰</span>
+        </a>
+        <a href="booking.html" class="btn-gold hidden !px-5 !py-2.5 md:inline-flex">رزرو پرو</a>
+        <button id="menu-toggle" class="grid h-11 w-11 place-items-center rounded-full hover:bg-pearl lg:hidden" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M10 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- منوی تمام‌صفحه موبایل -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden bg-ivory" role="dialog" aria-modal="true" aria-label="منو">
+    <div class="ph ph-2 absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="relative flex h-full flex-col px-6 py-5">
+      <div class="flex items-center justify-between">
+        <span class="text-[28px] font-light">سپید</span>
+        <button id="menu-close" class="grid h-11 w-11 place-items-center rounded-full bg-pearl" aria-label="بستن منو">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <nav class="mt-14 flex-1" aria-label="منوی موبایل">
+        <ul class="space-y-6 text-2xl font-light">
+          <li><a href="collection.html">کالکشن</a></li>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="about.html">درباره ما</a></li>
+          <li><a href="brides.html">عروس‌های ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </nav>
+      <a href="booking.html" class="btn-gold w-full">نوبت پروم رو رزرو کن</a>
+      <p class="mt-3 text-center text-sm text-ink-soft">پرو اول رایگان، بدون هیچ تعهدی</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="relative -mt-[72px] overflow-hidden" aria-labelledby="page-title">
+      <div class="ph ph-3 absolute inset-0"><img src="images/page-contact.webp" alt="" fetchpriority="high" onerror="imgFallback(this)"></div>
+      <div class="absolute inset-0 bg-gradient-to-l from-ivory via-ivory/85 to-ivory/30" aria-hidden="true"></div>
+      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-24 md:pt-44">
+        <nav aria-label="مسیر صفحه" class="mb-6 text-sm text-ink-soft"><a href="index.html" class="hover:text-ink">خانه</a> <span aria-hidden="true">/</span> <span aria-current="page" class="text-ink">تماس</span></nav>
+        <p class="eyebrow">خوشحال می‌شویم صدایت را بشنویم</p>
+        <h1 id="page-title" class="max-w-2xl text-[32px] font-light leading-snug md:text-[52px]">تماس با سپید</h1>
+        <p id="page-lead" class="mt-5 max-w-xl text-ink-soft md:text-lg">سؤالی داری؟ از هر راهی که راحت‌تری با ما در تماس باش.</p>
+      </div>
+    </section>
+
+    <section class="bg-ivory pb-24 pt-6 md:pb-32" aria-label="راه‌های ارتباط">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><a href="tel:+982112345678" rel="noopener" class="reveal card group flex items-center gap-4 p-6 transition duration-500 ease-silk hover:-translate-y-1"><span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-blush/60 transition group-hover:bg-blush"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B3330" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 5c0 8.3 6.7 15 15 15l1.5-3.5-4-2-2 2a11 11 0 01-7-7l2-2-2-4z"/></svg></span><span><span class="block font-bold">تلفن مزون</span><span class="text-sm text-ink-soft">۰۲۱-۱۲۳۴۵۶۷۸</span></span></a><a href="https://wa.me/989120000000" rel="noopener" class="reveal card group flex items-center gap-4 p-6 transition duration-500 ease-silk hover:-translate-y-1"><span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-blush/60 transition group-hover:bg-blush"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B3330" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3z"/></svg></span><span><span class="block font-bold">واتساپ</span><span class="text-sm text-ink-soft">پاسخ در کمتر از یک ساعت</span></span></a><a href="https://instagram.com/" rel="noopener" class="reveal card group flex items-center gap-4 p-6 transition duration-500 ease-silk hover:-translate-y-1"><span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-blush/60 transition group-hover:bg-blush"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B3330" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm5 5a4 4 0 100 8 4 4 0 000-8z"/></svg></span><span><span class="block font-bold">اینستاگرام</span><span class="text-sm text-ink-soft">@sepid.bridal (نمونه)</span></span></a><a href="https://neshan.org/maps" rel="noopener" class="reveal card group flex items-center gap-4 p-6 transition duration-500 ease-silk hover:-translate-y-1"><span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-blush/60 transition group-hover:bg-blush"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B3330" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21zm0-9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg></span><span><span class="block font-bold">نشانی</span><span class="text-sm text-ink-soft">تهران، خیابان ولیعصر، پلاک ۱۲۰</span></span></a></div>
+
+        <div class="mt-16 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+          <form id="contact-form" class="reveal card p-6 md:p-10" novalidate>
+            <h2 class="text-2xl font-bold">برایمان پیام بگذار</h2>
+            <p class="mt-2 text-sm text-ink-soft">در ساعات کاری، حداکثر تا ۲ ساعت بعد جواب می‌دهیم.</p>
+            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+              <div><label class="field-label" for="c-name">نام شما <span class="text-error" aria-hidden="true">*</span></label><input id="c-name" class="field" autocomplete="name" required aria-describedby="c-name-err"><span id="c-name-err" class="field-err" aria-live="polite"></span></div>
+              <div><label class="field-label" for="c-mobile">شماره موبایل <span class="text-error" aria-hidden="true">*</span></label><input id="c-mobile" class="field" inputmode="tel" dir="ltr" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel" required aria-describedby="c-mobile-err"><span id="c-mobile-err" class="field-err" aria-live="polite"></span></div>
+            </div>
+            <label class="field-label mt-2" for="c-topic">موضوع</label>
+            <select id="c-topic" class="field"><option>سؤال درباره لباس‌ها</option><option>قیمت و پکیج‌ها</option><option>دوخت اختصاصی</option><option>تغییر نوبت پرو</option><option>موضوع دیگر</option></select>
+            <label class="field-label mt-5" for="c-msg">پیام شما</label>
+            <textarea id="c-msg" rows="5" class="field" placeholder="مثلاً: برای عروسی اردیبهشت لباس پوشیده می‌خواهم…"></textarea>
+            <button class="btn-gold mt-8 w-full sm:w-auto">ارسال پیام</button>
+            <p id="c-ok" class="mt-5 hidden rounded-xl bg-sage/30 p-4 text-sm" role="status"></p>
+          </form>
+          <div class="reveal space-y-6">
+            <div class="rounded-2xl bg-pearl p-7">
+              <h2 class="text-lg font-bold">ساعات کاری</h2>
+              <dl class="mt-4 space-y-3 text-sm">
+                <div class="flex justify-between border-b border-line pb-3"><dt>شنبه تا چهارشنبه</dt><dd class="font-semibold">۱۰ تا ۲۰</dd></div>
+                <div class="flex justify-between border-b border-line pb-3"><dt>پنج‌شنبه</dt><dd class="font-semibold">۱۰ تا ۲۰</dd></div>
+                <div class="flex justify-between"><dt>جمعه و تعطیلات رسمی</dt><dd class="font-semibold text-ink-soft">تعطیل</dd></div>
+              </dl>
+              <p class="mt-5 rounded-xl bg-ivory p-3 text-xs leading-6 text-ink-soft">برای پرو، رزرو قبلی لازم است تا اتاق خصوصی برایت آماده باشد.</p>
+            </div>
+            <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 group block aspect-[16/10] overflow-hidden rounded-2xl" aria-label="مسیریابی مزون سپید در نقشه نشان">
+              <img src="images/page-contact.webp" alt="ورودی مزون سپید" loading="lazy" class="transition duration-700 ease-silk group-hover:scale-105" onerror="imgFallback(this)">
+              <span class="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl bg-ivory/90 px-4 py-3 text-sm font-semibold backdrop-blur">📍 مسیریابی با نشان یا بلد <span aria-hidden="true">←</span></span>
+            </a>
+            <p class="text-sm text-ink-soft">نزدیک‌ترین ایستگاه مترو: میدان ولیعصر، ۵ دقیقه پیاده · پارکینگ عمومی روبه‌روی ساختمان (نشانی نمونه است).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ۱۳. سؤالات متداول -->
+    <section class="bg-pearl py-24 md:py-32" aria-labelledby="faq-title">
+      <div class="mx-auto max-w-3xl px-5 md:px-8">
+        <div class="reveal text-center">
+          <p class="eyebrow">خیالت راحت</p>
+          <h2 id="faq-title" class="section-title">سؤالات متداول</h2>
+        </div>
+        <div class="reveal mt-12 divide-y divide-line rounded-2xl bg-ivory px-6 shadow-silk md:px-8">
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">چند ماه قبل از عروسی مراجعه کنم؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">برای اجاره، ۲ تا ۳ ماه قبل کافی است. برای دوخت اختصاصی بهتر است ۴ تا ۶ ماه زودتر بیایی.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">پرو هزینه دارد؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">پرو اول کاملاً رایگان و بدون هیچ تعهدی است. می‌توانی تا ۵ لباس را امتحان کنی.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">بیعانه چقدر است؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">بعد از انتخاب لباس، ۳۰٪ مبلغ به‌عنوان بیعانه گرفته می‌شود و بقیه در جلسه تحویل.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">اگر تا روز عروسی وزنم تغییر کرد چه؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">نگران نباش؛ یک جلسه تنظیم نهایی در هفته آخر داریم و تغییرات معمول رایگان انجام می‌شود.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">همراه چند نفر می‌توانم بیایم؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">اتاق پرو خصوصی برای تو و حداکثر ۳ همراه آماده می‌شود تا با آرامش انتخاب کنید.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">شرایط انصراف و مرجوعی چطور است؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">تا ۳۰ روز قبل از مراسم، بیعانه کامل برمی‌گردد. بعد از آن، قوانین در قرارداد به‌روشنی نوشته شده است.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <script>
+      // فرم تماس: فقط نام و موبایل اجباری؛ پیام مؤدب فارسی برای خطا
+      document.addEventListener('DOMContentLoaded', () => {
+        const f = document.getElementById('contact-form');
+        const en = s => s.replace(/[۰-۹]/g, c => '۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[٠-٩]/g, c => '٠١٢٣٤٥٦٧٨٩'.indexOf(c));
+        const err = (id, m) => { const el = document.getElementById(id); el.setAttribute('aria-invalid', m ? 'true' : 'false'); el.classList.toggle('!border-error', !!m); document.getElementById(id + '-err').textContent = m; return !m; };
+        const vName = () => err('c-name', document.getElementById('c-name').value.trim().length < 2 ? 'لطفاً نامت را بنویس.' : '');
+        const vMob = () => { const v = en(document.getElementById('c-mobile').value).replace(/[\s-]/g, ''); return err('c-mobile', !v ? 'شماره موبایلت را وارد کن تا جوابت را بدهیم.' : !/^09\d{9}$/.test(v) ? 'شماره موبایل باید ۱۱ رقم باشد و با ۰۹ شروع شود.' : ''); };
+        document.getElementById('c-name').addEventListener('blur', vName);
+        document.getElementById('c-mobile').addEventListener('blur', vMob);
+        f.addEventListener('submit', e => {
+          e.preventDefault();
+          const a = vName(), b = vMob();
+          if (!a || !b) { (a ? document.getElementById('c-mobile') : document.getElementById('c-name')).focus(); return; }
+          const ok = document.getElementById('c-ok');
+          ok.textContent = `ممنون ${document.getElementById('c-name').value.trim()} عزیز؛ پیامت رسید و به‌زودی با تو تماس می‌گیریم. 🤍`;
+          ok.classList.remove('hidden');
+          f.querySelectorAll('input, textarea').forEach(x => { x.value = ''; });
+        });
+      });
+    </script>
+  </main>
+
+  <!-- ۱۵. فوتر -->
+  <footer id="contact" class="scroll-mt-20 bg-ink text-ivory/80">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4 md:px-8">
+      <div class="md:col-span-1">
+        <p class="text-3xl font-light text-ivory">سپید</p>
+        <p class="mt-3 text-sm leading-7">لحظه‌ای که برای همیشه می‌ماند. مزون لباس عروس، نامزدی و شب از سال ۱۳۹۳.</p>
+        <div class="mt-5 inline-grid h-24 w-24 place-items-center rounded-xl border border-dashed border-ivory/30 text-center text-xs">جایگاه نماد<br>اعتماد (اینماد)</div>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">نشانی و ساعات کاری</h2>
+        <address class="not-italic text-sm leading-7">تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۱۲۰، طبقه دوم <span class="text-ivory/60">(نمونه)</span></address>
+        <p class="mt-3 text-sm">شنبه تا پنج‌شنبه، ۱۰ تا ۲۰</p>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">ارتباط با ما</h2>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-ivory" href="tel:+982112345678">تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+          <li><a class="hover:text-ivory" href="https://wa.me/989120000000" rel="noopener">واتساپ</a></li>
+          <li><a class="hover:text-ivory" href="https://instagram.com/" rel="noopener">اینستاگرام</a></li>
+          <li><a class="hover:text-ivory" href="booking.html">رزرو وقت پرو</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">مسیریابی</h2>
+        <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 block aspect-[4/3] rounded-xl" aria-label="مسیریابی مزون سپید در نقشه نشان">
+          <img src="images/map.webp" alt="نقشه موقعیت مزون" loading="lazy" onerror="imgFallback(this)">
+          <span class="absolute inset-0 grid place-items-center text-sm font-semibold text-ink">📍 مسیریابی با نشان</span>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-ivory/10">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs md:flex-row md:px-8">
+        <p>© <span id="year">۱۴۰۵</span> مزون عروس سپید — همه حقوق محفوظ است.</p>
+        <p>طراحی شده توسط <a href="https://markology.ir/" class="font-semibold text-ivory hover:underline" rel="noopener">مارکولوژی</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ۱۶. دکمه شناور واتساپ (پایین چپ) -->
+  <a href="https://wa.me/989120000000" rel="noopener" class="fixed bottom-24 end-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-sage text-ink-deep shadow-silk-lg transition hover:-translate-y-1 md:bottom-6" aria-label="گفتگو در واتساپ">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+
+  <!-- نوار چسبان پایین موبایل -->
+  <nav class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-[1fr_1.6fr] gap-3 border-t border-line bg-ivory/[.97] px-4 py-3 md:hidden" aria-label="دسترسی سریع">
+    <a href="tel:+982112345678" class="btn-line !py-3">تماس</a>
+    <a href="booking.html" class="btn-gold !py-3">رزرو پرو</a>
+  </nav>
+
+  <!-- نوار مقایسه -->
+  <div id="compare-bar" class="fixed inset-x-4 bottom-24 z-30 mx-auto hidden max-w-md items-center justify-between gap-3 rounded-full bg-ink px-5 py-3 text-sm text-ivory shadow-silk-lg md:bottom-6 [&:not(.hidden)]:flex" role="region" aria-label="مقایسه لباس‌ها">
+    <span><span id="compare-count">۰</span> لباس برای مقایسه</span>
+    <span class="flex gap-2">
+      <button id="compare-clear" class="rounded-full px-3 py-1.5 text-ivory/80 hover:text-ivory">پاک کردن</button>
+      <button id="compare-open" class="rounded-full bg-gold px-4 py-1.5 font-semibold text-ink-deep">مقایسه کن</button>
+    </span>
+  </div>
+
+  <!-- مودال مقایسه -->
+  <div id="compare-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto bg-ink/40 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+    <div class="card mx-auto my-8 max-w-3xl p-6 md:p-8">
+      <div class="flex items-center justify-between">
+        <h2 id="compare-title" class="text-xl font-bold">مقایسه کنار هم</h2>
+        <button id="compare-close" class="grid h-10 w-10 place-items-center rounded-full bg-pearl" aria-label="بستن مقایسه"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div id="compare-body" class="mt-6"></div>
+    </div>
+  </div>
+
+  <!-- پیام کوتاه -->
+  <div id="toast" class="pointer-events-none fixed inset-x-0 bottom-28 z-[80] mx-auto w-fit max-w-[90%] translate-y-4 rounded-full bg-ink px-5 py-2.5 text-center text-sm text-ivory opacity-0 shadow-silk-lg transition-all duration-500 ease-silk md:bottom-24" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خدمات و پکیج‌های عروس | مزون عروس سپید</title>
+  <meta name="description" content="اجاره لباس عروس، دوخت اختصاصی، لباس نامزدی و عقد، لباس شب و حنابندان، تور و تاج و پکیج اقتصادی عروس با قیمت شفاف.">
+  <meta name="theme-color" content="#F7EFE2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="خدمات و پکیج‌های عروس | مزون عروس سپید">
+  <meta property="og:description" content="اجاره لباس عروس، دوخت اختصاصی، لباس نامزدی و عقد، لباس شب و حنابندان، تور و تاج و پکیج اقتصادی عروس با قیمت شفاف.">
+  <meta property="og:image" content="images/hero.webp">
+  <link rel="preload" href="fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="dist/style.css">
+  <script src="js/images.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+</head>
+<body class="pb-20 md:pb-0">
+  <a href="#main" class="sr-only top-0 start-0 focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[100] focus:rounded-full focus:bg-ivory focus:px-4 focus:py-2">رفتن به محتوای اصلی</a>
+
+  <!-- ۱. نوار اعلان -->
+  <div id="announce" class="relative z-50 bg-blush px-10 py-2 text-center text-sm text-ink">
+    <p>✨ پرو اول رایگان + <strong>۱۰٪ تخفیف</strong> برای عروس‌های فصل بهار</p>
+    <button id="announce-close" class="absolute top-1/2 end-3 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full hover:bg-ivory/60" aria-label="بستن اعلان">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <!-- ۲. هدر چسبان -->
+  <header class="site-header sticky top-0 z-40 transition-all duration-500 ease-silk">
+    <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
+      <a href="index.html" class="flex items-baseline gap-2" aria-label="مزون عروس سپید، صفحه اصلی">
+        <span class="text-[28px] font-light tracking-tight">سپید</span>
+        <span class="hidden text-xs text-ink-soft sm:inline">مزون عروس</span>
+      </a>
+      <nav class="hidden lg:block" aria-label="منوی اصلی">
+        <ul class="flex items-center gap-8 text-[15px] font-semibold">
+          <li><a class="nav-link transition hover:text-gold-text" href="collection.html">کالکشن</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="services.html" aria-current="page">خدمات</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="about.html">درباره ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="brides.html">عروس‌های ما</a></li>
+          <li><a class="nav-link transition hover:text-gold-text" href="contact.html">تماس</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="collection.html?fav=1" class="relative grid h-11 w-11 place-items-center rounded-full transition hover:bg-pearl" aria-label="علاقه‌مندی‌های من">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.4C1.4 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.6 3.1 4.3 6.6-1.8 4.8-9.3 9.4-9.3 9.4z"/></svg>
+          <span class="fav-count absolute -top-0.5 -end-0.5 hidden min-w-[20px] rounded-full bg-rose px-1 text-center text-[11px] font-bold leading-5 text-ink-deep">۰</span>
+        </a>
+        <a href="booking.html" class="btn-gold hidden !px-5 !py-2.5 md:inline-flex">رزرو پرو</a>
+        <button id="menu-toggle" class="grid h-11 w-11 place-items-center rounded-full hover:bg-pearl lg:hidden" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M10 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- منوی تمام‌صفحه موبایل -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden bg-ivory" role="dialog" aria-modal="true" aria-label="منو">
+    <div class="ph ph-2 absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="relative flex h-full flex-col px-6 py-5">
+      <div class="flex items-center justify-between">
+        <span class="text-[28px] font-light">سپید</span>
+        <button id="menu-close" class="grid h-11 w-11 place-items-center rounded-full bg-pearl" aria-label="بستن منو">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <nav class="mt-14 flex-1" aria-label="منوی موبایل">
+        <ul class="space-y-6 text-2xl font-light">
+          <li><a href="collection.html">کالکشن</a></li>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="about.html">درباره ما</a></li>
+          <li><a href="brides.html">عروس‌های ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </nav>
+      <a href="booking.html" class="btn-gold w-full">نوبت پروم رو رزرو کن</a>
+      <p class="mt-3 text-center text-sm text-ink-soft">پرو اول رایگان، بدون هیچ تعهدی</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="relative -mt-[72px] overflow-hidden" aria-labelledby="page-title">
+      <div class="ph ph-3 absolute inset-0"><img src="images/page-services.webp" alt="" fetchpriority="high" onerror="imgFallback(this)"></div>
+      <div class="absolute inset-0 bg-gradient-to-l from-ivory via-ivory/85 to-ivory/30" aria-hidden="true"></div>
+      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ivory to-transparent" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-24 md:pt-44">
+        <nav aria-label="مسیر صفحه" class="mb-6 text-sm text-ink-soft"><a href="index.html" class="hover:text-ink">خانه</a> <span aria-hidden="true">/</span> <span aria-current="page" class="text-ink">خدمات</span></nav>
+        <p class="eyebrow">هر آنچه برای روزت لازم داری</p>
+        <h1 id="page-title" class="max-w-2xl text-[32px] font-light leading-snug md:text-[52px]">خدمات مزون سپید</h1>
+        <p id="page-lead" class="mt-5 max-w-xl text-ink-soft md:text-lg">از اجاره و دوخت اختصاصی تا تور و تاج؛ با قیمت شفاف و بدون غافلگیری.</p>
+      </div>
+    </section>
+
+    <section class="bg-ivory pb-24 pt-8 md:pb-32" aria-label="فهرست خدمات">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <nav class="snap-row !gap-2 reveal" aria-label="پرش به خدمت"><a href="#service-rent" class="filter-chip">اجاره لباس عروس</a><a href="#service-custom" class="filter-chip">فروش و دوخت اختصاصی</a><a href="#service-engagement" class="filter-chip">لباس نامزدی و عقد</a><a href="#service-evening" class="filter-chip">لباس شب و حنابندان</a><a href="#service-accessory" class="filter-chip">تور، تاج و اکسسوری</a><a href="#service-package" class="filter-chip">پکیج اقتصادی عروس</a><a href="#packages" class="filter-chip">پکیج‌ها</a></nav>
+        <div class="mt-16 space-y-24 md:space-y-32">
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 " id="service-rent">
+          <div class="ph ph-1 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-rent.webp" alt="اجاره لباس عروس" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">محبوب‌ترین</p>
+            <h2 class="text-2xl font-bold md:text-3xl">اجاره لباس عروس</h2>
+            <p class="mt-4 text-ink-soft">بیش از ۲۰۰ مدل لباس عروس آماده پرو. لباس انتخابی‌ات دقیقاً روی اندام تو تنظیم می‌شود؛ انگار برای خودت دوخته شده.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>تنظیم کامل سایز در دو جلسه</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>تحویل اتوشده همراه ژپون</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>شست‌وشوی بعد از مراسم با ما</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=rent" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۱۸ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 md:[&>div:first-child]:order-2" id="service-custom">
+          <div class="ph ph-2 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-custom.webp" alt="فروش و دوخت اختصاصی" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">فقط مال خودت</p>
+            <h2 class="text-2xl font-bold md:text-3xl">فروش و دوخت اختصاصی</h2>
+            <p class="mt-4 text-ink-soft">از طرح اولیه تا آخرین دکمه، لباسی که فقط برای تو طراحی می‌شود و برای همیشه پیش تو می‌ماند.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>جلسه طراحی و انتخاب پارچه</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>سه نوبت پرو در مراحل دوخت</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>زمان دوخت: ۶ تا ۱۰ هفته</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=custom" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۶۵ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 " id="service-engagement">
+          <div class="ph ph-3 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-engagement.webp" alt="لباس نامزدی و عقد" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">اولین قدم مشترک</p>
+            <h2 class="text-2xl font-bold md:text-3xl">لباس نامزدی و عقد</h2>
+            <p class="mt-4 text-ink-soft">سبز زمردی، زرشکی، سرمه‌ای یا نقره‌ای؛ رنگ‌هایی که عروس‌های ایرانی برای نامزدی و عقد دوست دارند.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>اجاره و دوخت</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>هماهنگ با رنگ کت داماد</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>مشاوره رنگ بر اساس رنگ پوست</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=engage" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۹ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 md:[&>div:first-child]:order-2" id="service-evening">
+          <div class="ph ph-4 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-evening.webp" alt="لباس شب و حنابندان" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">شب‌های شاد قبل از عروسی</p>
+            <h2 class="text-2xl font-bold md:text-3xl">لباس شب و حنابندان</h2>
+            <p class="mt-4 text-ink-soft">لباس‌هایی با رنگ‌های گرم و پارچه‌های خوش‌افت برای حنابندان، پاتختی و مهمانی‌های خانوادگی.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>مدل‌های پوشیده و باز</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>اجاره برای یک یا دو شب</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>اکسسوری هماهنگ</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=evening" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۷ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 " id="service-accessory">
+          <div class="ph ph-1 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-accessory.webp" alt="تور، تاج و اکسسوری" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">جزئیات کامل‌کننده</p>
+            <h2 class="text-2xl font-bold md:text-3xl">تور، تاج و اکسسوری</h2>
+            <p class="mt-4 text-ink-soft">تور بلند یا کوتاه، تاج ظریف یا باشکوه، دستکش و ژپون؛ همه هماهنگ با لباسی که انتخاب کرده‌ای.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>ست کامل هماهنگ با لباس</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>تور دست‌دوز سفارشی</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>اجاره یا خرید</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=rent" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۲ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        <article class="reveal grid scroll-mt-28 items-center gap-8 md:grid-cols-2 md:gap-16 md:[&>div:first-child]:order-2" id="service-package">
+          <div class="ph ph-2 aspect-[4/3] rounded-[1.75rem] shadow-silk"><img src="images/service-package.webp" alt="پکیج اقتصادی عروس" loading="lazy" onerror="imgFallback(this)"></div>
+          <div>
+            <p class="eyebrow">بدون هزینه پنهان</p>
+            <h2 class="text-2xl font-bold md:text-3xl">پکیج اقتصادی عروس</h2>
+            <p class="mt-4 text-ink-soft">لباس عروس، تور، تاج و ژپون در یک پکیج با قیمت مشخص؛ برای عروسی که می‌خواهد خیالش از بودجه راحت باشد.</p>
+            <ul class="mt-6 grid gap-2 text-ink-soft"><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>قیمت ثابت و شفاف</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>پرداخت در دو قسط</li><li class="flex gap-2"><span class="text-rose" aria-hidden="true">✦</span>۱۰٪ تخفیف عروس‌های بهار</li></ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="booking.html?service=rent" class="btn-gold">رزرو پرو برای این خدمت</a>
+              <span class="text-sm"><span class="text-ink-soft">از</span> <strong>۲۴ میلیون تومان</strong></span>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages" class="scroll-mt-24 bg-pearl py-24 md:py-32" aria-labelledby="pk-title">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="reveal text-center"><p class="eyebrow">قیمت شفاف، بدون هزینه پنهان</p><h2 id="pk-title" class="section-title">پکیج‌های عروس</h2>
+          <p class="lead">هر پکیج را می‌توانی در پرو بر اساس سلیقه‌ات تغییر دهی.</p></div>
+        <div class="mt-16 grid gap-6 md:grid-cols-3 md:items-start">
+          <article class="reveal card relative flex flex-col p-8 ">
+            <h3 class="text-xl font-bold">پکیج اقتصادی</h3>
+            <p class="mt-4"><span class="text-3xl font-bold">۲۴ میلیون</span> <span class="text-ink-soft">تومان</span></p>
+            <ul class="mt-6 flex-1 space-y-3 text-sm text-ink-soft"><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>لباس کلاسیک اجاره‌ای</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>تور و تاج</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>ژپون</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>یک جلسه تنظیم</li></ul>
+            <a href="booking.html" class="btn-line mt-8">انتخاب این پکیج</a>
+          </article>
+          <article class="reveal card relative flex flex-col p-8 ring-2 ring-gold md:-translate-y-4"><span class="chip absolute -top-3 start-1/2 -translate-x-1/2 !bg-gold !text-ink-deep">پیشنهاد ما</span>
+            <h3 class="text-xl font-bold">پکیج کلاسیک</h3>
+            <p class="mt-4"><span class="text-3xl font-bold">۳۸ میلیون</span> <span class="text-ink-soft">تومان</span></p>
+            <ul class="mt-6 flex-1 space-y-3 text-sm text-ink-soft"><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>لباس ویژه اجاره‌ای</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>تور دست‌دوز و تاج</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>ژپون و کرست</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>دو جلسه تنظیم</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>لباس عقد (اجاره)</li></ul>
+            <a href="booking.html" class="btn-gold mt-8">انتخاب این پکیج</a>
+          </article>
+          <article class="reveal card relative flex flex-col p-8 ">
+            <h3 class="text-xl font-bold">پکیج رؤیایی</h3>
+            <p class="mt-4"><span class="text-3xl font-bold">۹۵ میلیون</span> <span class="text-ink-soft">تومان</span></p>
+            <ul class="mt-6 flex-1 space-y-3 text-sm text-ink-soft"><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>دوخت اختصاصی لباس</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>تور و تاج سفارشی</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>کفش عروس</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>لباس حنابندان (اجاره)</li><li class="flex gap-2"><span class="text-gold-text" aria-hidden="true">✓</span>آماده‌سازی روز مراسم</li></ul>
+            <a href="booking.html" class="btn-line mt-8">انتخاب این پکیج</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ۱۰. مسیر شما تا روز عروسی -->
+    <section class="bg-ivory py-24 md:py-32" aria-labelledby="journey-title">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="reveal text-center">
+          <p class="eyebrow">بدون ابهام، قدم‌به‌قدم</p>
+          <h2 id="journey-title" class="section-title">مسیر تو تا روز عروسی</h2>
+        </div>
+        <ol class="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-6">
+          <span class="absolute inset-x-[12%] top-7 hidden h-px bg-gradient-to-l from-rose via-gold to-rose md:block" aria-hidden="true"></span>
+          <li class="reveal relative flex gap-5 md:flex-col md:items-center md:text-center"><span class="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-rose bg-ivory text-lg font-bold">۱</span><div><h3 class="font-bold">رزرو آنلاین</h3><p class="mt-1 text-sm text-ink-soft">در کمتر از یک دقیقه، روز و ساعت دلخواهت را انتخاب کن.</p></div></li>
+          <li class="reveal relative flex gap-5 md:flex-col md:items-center md:text-center"><span class="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-rose bg-ivory text-lg font-bold">۲</span><div><h3 class="font-bold">پرو و مشاوره</h3><p class="mt-1 text-sm text-ink-soft">پرو خصوصی، همراه عزیزانت و با مشاوره رایگان سبک.</p></div></li>
+          <li class="reveal relative flex gap-5 md:flex-col md:items-center md:text-center"><span class="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-rose bg-ivory text-lg font-bold">۳</span><div><h3 class="font-bold">تنظیم و دوخت</h3><p class="mt-1 text-sm text-ink-soft">لباس دقیقاً روی اندام تو تنظیم می‌شود؛ معمولاً در دو جلسه.</p></div></li>
+          <li class="reveal relative flex gap-5 md:flex-col md:items-center md:text-center"><span class="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-gold bg-blush text-lg font-bold">۴</span><div><h3 class="font-bold">تحویل با ژپون و تاج</h3><p class="mt-1 text-sm text-ink-soft">اتوشده و آماده، همراه همه ملزومات؛ سر وقت.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ۱۱. ماشین‌حساب پکیج -->
+    <section id="calculator" class="bg-ivory py-24 md:py-32" aria-labelledby="calc-title">
+      <div class="mx-auto max-w-5xl px-5 md:px-8">
+        <div class="reveal text-center">
+          <p class="eyebrow">قیمت شفاف، بدون غافلگیری</p>
+          <h2 id="calc-title" class="section-title">هزینه پکیجت را حساب کن</h2>
+          <p class="lead">انتخاب کن، قیمت تقریبی را همین‌جا ببین.</p>
+        </div>
+        <div class="reveal card mt-12 grid gap-10 p-6 md:grid-cols-[1.4fr_1fr] md:p-10">
+          <form class="space-y-8" onsubmit="return false">
+            <fieldset>
+              <legend class="mb-3 font-bold">نوع لباس</legend>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="cursor-pointer rounded-xl border border-line px-4 py-3 text-center transition has-[:checked]:border-gold has-[:checked]:bg-blush/40"><input type="radio" name="calc-mode" value="rent" class="sr-only" checked>اجاره</label>
+                <label class="cursor-pointer rounded-xl border border-line px-4 py-3 text-center transition has-[:checked]:border-gold has-[:checked]:bg-blush/40"><input type="radio" name="calc-mode" value="buy" class="sr-only">خرید و دوخت</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="mb-3 font-bold">سطح لباس</legend>
+              <div class="grid grid-cols-3 gap-3 text-sm">
+                <label class="cursor-pointer rounded-xl border border-line px-3 py-3 text-center transition has-[:checked]:border-gold has-[:checked]:bg-blush/40"><input type="radio" name="calc-tier" value="classic" class="sr-only" checked>کلاسیک</label>
+                <label class="cursor-pointer rounded-xl border border-line px-3 py-3 text-center transition has-[:checked]:border-gold has-[:checked]:bg-blush/40"><input type="radio" name="calc-tier" value="special" class="sr-only">ویژه</label>
+                <label class="cursor-pointer rounded-xl border border-line px-3 py-3 text-center transition has-[:checked]:border-gold has-[:checked]:bg-blush/40"><input type="radio" name="calc-tier" value="luxe" class="sr-only">لوکس</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="mb-3 font-bold">خدمات اضافه</legend>
+              <div id="calc-extras" class="grid gap-3"></div>
+            </fieldset>
+          </form>
+          <div class="flex flex-col justify-center rounded-2xl bg-gradient-to-b from-blush/50 to-pearl p-8 text-center">
+            <p class="text-sm text-ink-soft">هزینه تقریبی پکیج تو</p>
+            <p id="calc-total" class="mt-2 text-3xl font-bold md:text-4xl" aria-live="polite">—</p>
+            <p id="calc-detail" class="mt-2 text-sm text-ink-soft"></p>
+            <p class="mt-6 text-xs leading-6 text-ink-soft">قیمت نهایی بعد از پرو و انتخاب لباس مشخص می‌شود. عروس‌های فصل بهار ۱۰٪ تخفیف دارند.</p>
+            <a href="booking.html" class="btn-gold mt-6">با همین پکیج پرو رزرو کن</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ۱۳. سؤالات متداول -->
+    <section class="bg-pearl py-24 md:py-32" aria-labelledby="faq-title">
+      <div class="mx-auto max-w-3xl px-5 md:px-8">
+        <div class="reveal text-center">
+          <p class="eyebrow">خیالت راحت</p>
+          <h2 id="faq-title" class="section-title">سؤالات متداول</h2>
+        </div>
+        <div class="reveal mt-12 divide-y divide-line rounded-2xl bg-ivory px-6 shadow-silk md:px-8">
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">چند ماه قبل از عروسی مراجعه کنم؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">برای اجاره، ۲ تا ۳ ماه قبل کافی است. برای دوخت اختصاصی بهتر است ۴ تا ۶ ماه زودتر بیایی.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">پرو هزینه دارد؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">پرو اول کاملاً رایگان و بدون هیچ تعهدی است. می‌توانی تا ۵ لباس را امتحان کنی.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">بیعانه چقدر است؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">بعد از انتخاب لباس، ۳۰٪ مبلغ به‌عنوان بیعانه گرفته می‌شود و بقیه در جلسه تحویل.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">اگر تا روز عروسی وزنم تغییر کرد چه؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">نگران نباش؛ یک جلسه تنظیم نهایی در هفته آخر داریم و تغییرات معمول رایگان انجام می‌شود.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">همراه چند نفر می‌توانم بیایم؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">اتاق پرو خصوصی برای تو و حداکثر ۳ همراه آماده می‌شود تا با آرامش انتخاب کنید.</p></div></div></div>
+          <div class="acc-item"><h3><button class="flex w-full items-center justify-between gap-4 py-5 text-start font-semibold" aria-expanded="false">شرایط انصراف و مرجوعی چطور است؟<span class="acc-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pearl text-lg text-gold-text transition duration-500 ease-silk" aria-hidden="true">+</span></button></h3><div class="acc-panel"><div><p class="pb-5 text-ink-soft">تا ۳۰ روز قبل از مراسم، بیعانه کامل برمی‌گردد. بعد از آن، قوانین در قرارداد به‌روشنی نوشته شده است.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden py-24 md:py-28" aria-labelledby="cta-band-title">
+      <div class="ph ph-3 absolute inset-0"><img src="images/cta-bg.webp" alt="" loading="lazy" class="blur-[2px]" onerror="imgFallback(this)"></div>
+      <div class="absolute inset-0 bg-blush/75" aria-hidden="true"></div>
+      <div class="reveal relative mx-auto max-w-2xl px-5 text-center">
+        <h2 id="cta-band-title" class="text-[26px] font-light leading-snug md:text-[40px]">روز مهمت نزدیکه؛<br><span class="font-bold">بیا با هم لباست را پیدا کنیم</span></h2>
+        <p class="mx-auto mt-4 max-w-lg">نوبت پرو خصوصی‌ات را همین حالا رزرو کن؛ کمتر از یک دقیقه طول می‌کشد.</p>
+        <div class="mt-8 flex flex-col items-center gap-2"><a href="booking.html" class="btn-gold">نوبت پروم رو رزرو کن</a><span class="text-sm">پرو اول رایگان، بدون هیچ تعهدی</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ۱۵. فوتر -->
+  <footer id="contact" class="scroll-mt-20 bg-ink text-ivory/80">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4 md:px-8">
+      <div class="md:col-span-1">
+        <p class="text-3xl font-light text-ivory">سپید</p>
+        <p class="mt-3 text-sm leading-7">لحظه‌ای که برای همیشه می‌ماند. مزون لباس عروس، نامزدی و شب از سال ۱۳۹۳.</p>
+        <div class="mt-5 inline-grid h-24 w-24 place-items-center rounded-xl border border-dashed border-ivory/30 text-center text-xs">جایگاه نماد<br>اعتماد (اینماد)</div>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">نشانی و ساعات کاری</h2>
+        <address class="not-italic text-sm leading-7">تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۱۲۰، طبقه دوم <span class="text-ivory/60">(نمونه)</span></address>
+        <p class="mt-3 text-sm">شنبه تا پنج‌شنبه، ۱۰ تا ۲۰</p>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">ارتباط با ما</h2>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-ivory" href="tel:+982112345678">تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+          <li><a class="hover:text-ivory" href="https://wa.me/989120000000" rel="noopener">واتساپ</a></li>
+          <li><a class="hover:text-ivory" href="https://instagram.com/" rel="noopener">اینستاگرام</a></li>
+          <li><a class="hover:text-ivory" href="booking.html">رزرو وقت پرو</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 font-bold text-ivory">مسیریابی</h2>
+        <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 block aspect-[4/3] rounded-xl" aria-label="مسیریابی مزون سپید در نقشه نشان">
+          <img src="images/map.webp" alt="نقشه موقعیت مزون" loading="lazy" onerror="imgFallback(this)">
+          <span class="absolute inset-0 grid place-items-center text-sm font-semibold text-ink">📍 مسیریابی با نشان</span>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-ivory/10">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs md:flex-row md:px-8">
+        <p>© <span id="year">۱۴۰۵</span> مزون عروس سپید — همه حقوق محفوظ است.</p>
+        <p>طراحی شده توسط <a href="https://markology.ir/" class="font-semibold text-ivory hover:underline" rel="noopener">مارکولوژی</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ۱۶. دکمه شناور واتساپ (پایین چپ) -->
+  <a href="https://wa.me/989120000000" rel="noopener" class="fixed bottom-24 end-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-sage text-ink-deep shadow-silk-lg transition hover:-translate-y-1 md:bottom-6" aria-label="گفتگو در واتساپ">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+
+  <!-- نوار چسبان پایین موبایل -->
+  <nav class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-[1fr_1.6fr] gap-3 border-t border-line bg-ivory/[.97] px-4 py-3 md:hidden" aria-label="دسترسی سریع">
+    <a href="tel:+982112345678" class="btn-line !py-3">تماس</a>
+    <a href="booking.html" class="btn-gold !py-3">رزرو پرو</a>
+  </nav>
+
+  <!-- نوار مقایسه -->
+  <div id="compare-bar" class="fixed inset-x-4 bottom-24 z-30 mx-auto hidden max-w-md items-center justify-between gap-3 rounded-full bg-ink px-5 py-3 text-sm text-ivory shadow-silk-lg md:bottom-6 [&:not(.hidden)]:flex" role="region" aria-label="مقایسه لباس‌ها">
+    <span><span id="compare-count">۰</span> لباس برای مقایسه</span>
+    <span class="flex gap-2">
+      <button id="compare-clear" class="rounded-full px-3 py-1.5 text-ivory/80 hover:text-ivory">پاک کردن</button>
+      <button id="compare-open" class="rounded-full bg-gold px-4 py-1.5 font-semibold text-ink-deep">مقایسه کن</button>
+    </span>
+  </div>
+
+  <!-- مودال مقایسه -->
+  <div id="compare-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto bg-ink/40 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+    <div class="card mx-auto my-8 max-w-3xl p-6 md:p-8">
+      <div class="flex items-center justify-between">
+        <h2 id="compare-title" class="text-xl font-bold">مقایسه کنار هم</h2>
+        <button id="compare-close" class="grid h-10 w-10 place-items-center rounded-full bg-pearl" aria-label="بستن مقایسه"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div id="compare-body" class="mt-6"></div>
+    </div>
+  </div>
+
+  <!-- پیام کوتاه -->
+  <div id="toast" class="pointer-events-none fixed inset-x-0 bottom-28 z-[80] mx-auto w-fit max-w-[90%] translate-y-4 rounded-full bg-ink px-5 py-2.5 text-center text-sm text-ivory opacity-0 shadow-silk-lg transition-all duration-500 ease-silk md:bottom-24" role="status" aria-live="polite"></div>
+</body>
+</html>
