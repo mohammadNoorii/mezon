@@ -62,7 +62,7 @@ def banner(img, eyebrow, title, lead, crumbs):
       <div class="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-24 md:pt-44">
         <nav aria-label="مسیر صفحه" class="mb-6 text-sm text-ink-soft">{cr}</nav>
         <p class="eyebrow">{eyebrow}</p>
-        <h1 id="page-title" class="max-w-2xl text-[32px] font-light leading-snug md:text-[52px]">{title}</h1>
+        <h1 id="page-title" class="max-w-2xl text-[32px] font-bold leading-snug md:text-[52px]">{title}</h1>
         <p id="page-lead" class="mt-5 max-w-xl text-ink-soft md:text-lg">{lead}</p>
       </div>
     </section>
@@ -72,7 +72,7 @@ CTA_BAND = '''    <section class="relative overflow-hidden py-24 md:py-28" aria-
       <div class="ph ph-3 absolute inset-0"><img src="images/cta-bg.webp" alt="" loading="lazy" class="blur-[2px]" onerror="imgFallback(this)"></div>
       <div class="absolute inset-0 bg-blush/75" aria-hidden="true"></div>
       <div class="reveal relative mx-auto max-w-2xl px-5 text-center">
-        <h2 id="cta-band-title" class="text-[26px] font-light leading-snug md:text-[40px]">__T__</h2>
+        <h2 id="cta-band-title" class="text-[26px] font-bold leading-snug md:text-[40px]">__T__</h2>
         <p class="mx-auto mt-4 max-w-lg">__L__</p>
         <div class="mt-8 flex flex-col items-center gap-2"><a href="booking.html" class="btn-gold">نوبت پروم رو رزرو کن</a><span class="text-sm">پرو اول رایگان، بدون هیچ تعهدی</span></div>
       </div>

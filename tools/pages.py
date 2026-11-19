@@ -246,7 +246,7 @@ about_body = banner('page-about', 'داستان سپید', 'از یک میز خ�
       <div class="mx-auto max-w-5xl px-5 md:px-8">
         <div class="reveal text-center"><p class="eyebrow">کسانی که کنارت هستند</p><h2 id="team-title" class="section-title">تیم سپید</h2><p class="lead">نام‌ها نمونه هستند.</p></div>
         <div class="mt-14 grid gap-6 sm:grid-cols-3">''' + ''.join(
-    f'''<article class="reveal card p-8 text-center"><span class="mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-blush to-pearl text-4xl font-light text-ink" aria-hidden="true">{m}</span><h3 class="mt-5 text-lg font-bold">{n}</h3><p class="text-sm text-ink-soft">{r}</p></article>''' for m, n, r in team) + '''</div>
+    f'''<article class="reveal card p-8 text-center"><span class="mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-blush to-pearl text-4xl font-bold text-ink" aria-hidden="true">{m}</span><h3 class="mt-5 text-lg font-bold">{n}</h3><p class="text-sm text-ink-soft">{r}</p></article>''' for m, n, r in team) + '''</div>
       </div>
     </section>
 ''' + cta('دوست داریم قصه تو را هم بشنویم', 'یک فنجان چای، یک اتاق پرو خصوصی و کلی حوصله منتظر توست.')
@@ -255,16 +255,17 @@ page('about.html', 'درباره ما | مزون عروس سپید',
      [], 'about.html', about_body)
 
 # ---------------------------------------------------------------- عروس‌های ما
-gal = [('01', 'aspect-[3/4]', 'عروس در باغ با دسته گل', 'garden'), ('02', 'aspect-square', 'زوج در باغ', 'garden'),
+# برچسب مکان (hall/garden/outdoor) بر اساس محتوای واقعی هر عکس
+gal = [('01', 'aspect-[3/4]', 'عروس در باغ با دسته گل', 'garden'), ('02', 'aspect-square', 'زوج در گلخانه', 'garden'),
        ('03', 'aspect-[4/5]', 'دسته گل عروس در دست', 'hall'), ('04', 'aspect-[3/5]', 'عروس در غروب', 'outdoor'),
-       ('05', 'aspect-square', 'لحظه شاد زوج', 'outdoor'), ('06', 'aspect-[3/4]', 'زوج با دسته گل', 'hall'),
-       ('07', 'aspect-[4/5]', 'عروس با تور بلند در نور', 'hall'), ('08', 'aspect-[3/4]', 'عروس با تور در طبیعت', 'outdoor'),
+       ('05', 'aspect-square', 'زوج کنار هم با دسته گل', 'garden'), ('06', 'aspect-[3/4]', 'زوج با دسته گل در پاییز', 'garden'),
+       ('07', 'aspect-[4/5]', 'عروس با تور بلند و دسته گل', 'garden'), ('08', 'aspect-[3/4]', 'عروس با تور در طبیعت', 'outdoor'),
        ('09', 'aspect-square', 'عروس کنار دریاچه', 'outdoor'), ('10', 'aspect-[3/4]', 'زوج در ساحل', 'outdoor'),
-       ('11', 'aspect-square', 'عروس در فضای باز', 'garden'), ('12', 'aspect-[4/5]', 'عروس با لباس مارمید', 'hall'),
-       ('13', 'aspect-[3/4]', 'عروس میان درختان', 'garden'), ('14', 'aspect-square', 'دنباله بلند لباس', 'hall'),
+       ('11', 'aspect-square', 'عروس و داماد در باغ', 'garden'), ('12', 'aspect-[4/5]', 'عروس با لباس مارمید کنار پنجره', 'hall'),
+       ('13', 'aspect-[3/4]', 'عروس میان درختان', 'garden'), ('14', 'aspect-square', 'دنباله پف‌دار لباس', 'hall'),
        ('15', 'aspect-[3/4]', 'عروس در نور شب', 'hall')]
 gal_html = '\n'.join(
-    f'''          <button data-lightbox data-tag="{t}" data-src="images/gallery-{n}.webp" data-caption="{c}" class="ph ph-{(i % 4) + 1} block {a} w-full rounded-2xl"><img src="images/gallery-{n}.webp" alt="{c}" loading="lazy" onerror="imgFallback(this)"></button>'''
+    f'''          <button data-lightbox data-tag="{t}" data-src="images/gallery-{n}.webp" data-caption="{c}" class="ph ph-{(i % 4) + 1} aspect-[3/4] w-full rounded-2xl"><img src="images/gallery-{n}.webp" alt="{c}" loading="lazy" onerror="imgFallback(this)"></button>'''
     for i, (n, a, c, t) in enumerate(gal))
 extra_testi = '''            <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«برای حنابندان هم لباس گرفتم؛ رنگ زرشکی‌اش را همه تعریف کردند.»</blockquote><figcaption class="mt-5 text-sm"><strong>زهرا</strong> · <span class="text-ink-soft">۲ اردیبهشت ۱۴۰۵</span></figcaption></figure>
             <figure class="card w-[85%] p-7 sm:w-[48%] lg:w-[32%]"><div class="flex items-center justify-between"><span class="text-gold-deep" aria-label="۵ ستاره">★★★★★</span><span class="chip">نمونه</span></div><blockquote class="mt-4 text-ink-soft">«مشاور رنگ گفت آف‌وایت به پوستم بیشتر می‌آید؛ در عکس‌ها کاملاً معلوم بود.»</blockquote><figcaption class="mt-5 text-sm"><strong>نازنین</strong> · <span class="text-ink-soft">۱۵ فروردین ۱۴۰۵</span></figcaption></figure>
@@ -291,7 +292,7 @@ brides_body = banner('page-brides', 'لحظه‌هایی که ماندند', 'ع
             <button class="filter-chip" data-gal="outdoor" aria-pressed="false">فضای باز</button>
           </div>
         </div>
-        <div id="gallery" class="masonry mt-12 transition-opacity duration-300">
+        <div id="gallery" class="mt-12 grid grid-cols-2 gap-4 transition-opacity duration-300 md:grid-cols-3">
 ''' + gal_html + '''
         </div>
       </div>
@@ -318,7 +319,8 @@ brides_body = banner('page-brides', 'لحظه‌هایی که ماندند', 'ع
           document.querySelectorAll('[data-gal]').forEach(x => x.setAttribute('aria-pressed', x === b));
           g.style.opacity = '0';
           setTimeout(() => {
-            g.querySelectorAll('[data-lightbox]').forEach(it => { it.hidden = b.dataset.gal !== 'all' && it.dataset.tag !== b.dataset.gal; });
+            // با کلاس !hidden؛ ویژگی hidden به‌تنهایی زیر کلاس‌های نمایشی Tailwind می‌ماند
+            g.querySelectorAll('[data-lightbox]').forEach(it => { it.classList.toggle('!hidden', b.dataset.gal !== 'all' && it.dataset.tag !== b.dataset.gal); });
             g.style.opacity = '1';
           }, 250);
         }));
@@ -331,8 +333,8 @@ page('brides.html', 'عروس‌های ما | مزون عروس سپید',
 
 # ---------------------------------------------------------------- تماس
 cards = [('تلفن مزون', '۰۲۱-۱۲۳۴۵۶۷۸', 'tel:+982112345678', 'M4 5c0 8.3 6.7 15 15 15l1.5-3.5-4-2-2 2a11 11 0 01-7-7l2-2-2-4z'),
-         ('واتساپ', 'پاسخ در کمتر از یک ساعت', 'https://wa.me/989120000000', 'M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3z'),
-         ('اینستاگرام', '@sepid.bridal (نمونه)', 'https://instagram.com/', 'M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm5 5a4 4 0 100 8 4 4 0 000-8z'),
+         ('واتساپ', 'در ساعات کاری، پاسخ تا ۲ ساعت', 'https://wa.me/989120000000', 'M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3z'),
+         ('اینستاگرام', '<bdi dir="ltr">@sepid.bridal</bdi> (نمونه)', 'https://instagram.com/', 'M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm5 5a4 4 0 100 8 4 4 0 000-8z'),
          ('نشانی', 'تهران، خیابان ولیعصر، پلاک ۱۲۰', 'https://neshan.org/maps', 'M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21zm0-9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z')]
 contact_body = banner('page-contact', 'خوشحال می‌شویم صدایت را بشنویم', 'تماس با سپید',
     'سؤالی داری؟ از هر راهی که راحت‌تری با ما در تماس باش.', [('خانه', 'index.html'), ('تماس', None)]) + '''
@@ -344,31 +346,31 @@ contact_body = banner('page-contact', 'خوشحال می‌شویم صدایت �
         <div class="mt-16 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
           <form id="contact-form" class="reveal card p-6 md:p-10" novalidate>
             <h2 class="text-2xl font-bold">برایمان پیام بگذار</h2>
-            <p class="mt-2 text-sm text-ink-soft">در ساعات کاری، حداکثر تا ۲ ساعت بعد جواب می‌دهیم.</p>
+            <p class="mt-2 text-sm text-ink-soft">پیامت از طریق واتساپ برای ما فرستاده می‌شود؛ در ساعات کاری حداکثر تا ۲ ساعت بعد جواب می‌دهیم.</p>
             <div class="mt-8 grid gap-5 sm:grid-cols-2">
               <div><label class="field-label" for="c-name">نام شما <span class="text-error" aria-hidden="true">*</span></label><input id="c-name" class="field" autocomplete="name" required aria-describedby="c-name-err"><span id="c-name-err" class="field-err" aria-live="polite"></span></div>
-              <div><label class="field-label" for="c-mobile">شماره موبایل <span class="text-error" aria-hidden="true">*</span></label><input id="c-mobile" class="field" inputmode="tel" dir="ltr" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel" required aria-describedby="c-mobile-err"><span id="c-mobile-err" class="field-err" aria-live="polite"></span></div>
+              <div><label class="field-label" for="c-mobile">شماره موبایل <span class="text-error" aria-hidden="true">*</span></label><input id="c-mobile" class="field" inputmode="tel" dir="ltr" placeholder="09xx xxx xxxx" autocomplete="tel" required aria-describedby="c-mobile-err"><span id="c-mobile-err" class="field-err" aria-live="polite"></span></div>
             </div>
             <label class="field-label mt-2" for="c-topic">موضوع</label>
             <select id="c-topic" class="field"><option>سؤال درباره لباس‌ها</option><option>قیمت و پکیج‌ها</option><option>دوخت اختصاصی</option><option>تغییر نوبت پرو</option><option>موضوع دیگر</option></select>
             <label class="field-label mt-5" for="c-msg">پیام شما</label>
             <textarea id="c-msg" rows="5" class="field" placeholder="مثلاً: برای عروسی اردیبهشت لباس پوشیده می‌خواهم…"></textarea>
-            <button class="btn-gold mt-8 w-full sm:w-auto">ارسال پیام</button>
+            <button type="submit" class="btn-gold mt-8 w-full sm:w-auto">ارسال پیام در واتساپ</button>
             <p id="c-ok" class="mt-5 hidden rounded-xl bg-sage/30 p-4 text-sm" role="status"></p>
           </form>
           <div class="reveal space-y-6">
             <div class="rounded-2xl bg-pearl p-7">
               <h2 class="text-lg font-bold">ساعات کاری</h2>
               <dl class="mt-4 space-y-3 text-sm">
-                <div class="flex justify-between border-b border-line pb-3"><dt>شنبه تا چهارشنبه</dt><dd class="font-semibold">۱۰ تا ۲۰</dd></div>
-                <div class="flex justify-between border-b border-line pb-3"><dt>پنج‌شنبه</dt><dd class="font-semibold">۱۰ تا ۲۰</dd></div>
+                <div class="flex justify-between border-b border-line pb-3"><dt>شنبه تا پنج‌شنبه</dt><dd class="font-semibold">۱۰ تا ۲۰</dd></div>
                 <div class="flex justify-between"><dt>جمعه و تعطیلات رسمی</dt><dd class="font-semibold text-ink-soft">تعطیل</dd></div>
               </dl>
               <p class="mt-5 rounded-xl bg-ivory p-3 text-xs leading-6 text-ink-soft">برای پرو، رزرو قبلی لازم است تا اتاق خصوصی برایت آماده باشد.</p>
             </div>
-            <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 group block aspect-[16/10] overflow-hidden rounded-2xl" aria-label="مسیریابی مزون سپید در نقشه نشان">
-              <img src="images/page-contact.webp" alt="ورودی مزون سپید" loading="lazy" class="transition duration-700 ease-silk group-hover:scale-105" onerror="imgFallback(this)">
-              <span class="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl bg-ivory/90 px-4 py-3 text-sm font-semibold backdrop-blur">📍 مسیریابی با نشان یا بلد <span aria-hidden="true">←</span></span>
+            <a href="https://neshan.org/maps" rel="noopener" class="ph ph-4 group flex aspect-[16/10] flex-col items-center justify-center gap-3 rounded-2xl p-6 pb-20 text-center" aria-label="مسیریابی مزون سپید در نقشه نشان">
+              <span class="grid h-16 w-16 place-items-center rounded-full bg-ivory/90 shadow-silk transition duration-500 ease-silk group-hover:-translate-y-1"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B3330" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21zm0-9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg></span>
+              <span class="text-sm leading-7">تهران، خیابان ولیعصر، بالاتر از پارک ساعی<br>پلاک ۱۲۰، طبقه دوم</span>
+              <span class="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl bg-ivory/90 px-4 py-3 text-sm font-semibold">مسیریابی در نقشه نشان <span aria-hidden="true">←</span></span>
             </a>
             <p class="text-sm text-ink-soft">نزدیک‌ترین ایستگاه مترو: میدان ولیعصر، ۵ دقیقه پیاده · پارکینگ عمومی روبه‌روی ساختمان (نشانی نمونه است).</p>
           </div>
@@ -386,20 +388,25 @@ contact_body = banner('page-contact', 'خوشحال می‌شویم صدایت �
         const vMob = () => { const v = en(document.getElementById('c-mobile').value).replace(/[\\s-]/g, ''); return err('c-mobile', !v ? 'شماره موبایلت را وارد کن تا جوابت را بدهیم.' : !/^09\\d{9}$/.test(v) ? 'شماره موبایل باید ۱۱ رقم باشد و با ۰۹ شروع شود.' : ''); };
         document.getElementById('c-name').addEventListener('blur', vName);
         document.getElementById('c-mobile').addEventListener('blur', vMob);
+        f.addEventListener('input', () => document.getElementById('c-ok').classList.add('hidden'));
         f.addEventListener('submit', e => {
           e.preventDefault();
           const a = vName(), b = vMob();
           if (!a || !b) { (a ? document.getElementById('c-mobile') : document.getElementById('c-name')).focus(); return; }
+          // سایت بک‌اند ندارد؛ پیام آماده در واتساپ مزون باز می‌شود تا واقعاً به دست ما برسد
+          const val = id => document.getElementById(id).value.trim();
+          const text = `سلام، ${val('c-name')} هستم.\nموبایل: ${val('c-mobile')}\nموضوع: ${val('c-topic')}` + (val('c-msg') ? `\n\n${val('c-msg')}` : '');
+          const wa = (document.querySelector('a[href^="https://wa.me/"]') || {}).href || 'https://wa.me/989120000000';
+          window.open(wa.split('?')[0] + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
           const ok = document.getElementById('c-ok');
-          ok.textContent = `ممنون ${document.getElementById('c-name').value.trim()} عزیز؛ پیامت رسید و به‌زودی با تو تماس می‌گیریم. 🤍`;
+          ok.textContent = `${val('c-name')} عزیز، پیامت در واتساپ آماده شد؛ آنجا دکمه ارسال را بزن تا به دست ما برسد. اگر واتساپ باز نشد، با تلفن مزون تماس بگیر. 🤍`;
           ok.classList.remove('hidden');
-          f.querySelectorAll('input, textarea').forEach(x => { x.value = ''; });
         });
       });
     </script>
 '''
 page('contact.html', 'تماس با ما | مزون عروس سپید',
-     'تماس با مزون عروس سپید: تلفن، واتساپ، اینستاگرام، نشانی و ساعات کاری (شنبه تا پنج‌شنبه ۱۰ تا ۲۰). فرم پیام آنلاین.',
+     'تماس با مزون عروس سپید: تلفن، واتساپ، اینستاگرام، نشانی و ساعات کاری (شنبه تا پنج‌شنبه ۱۰ تا ۲۰). فرم پیام از طریق واتساپ.',
      [], 'contact.html', contact_body)
 
 # ---------------------------------------------------------------- رزرو
@@ -410,7 +417,7 @@ booking_body = '''    <section class="bg-gradient-to-b from-pearl to-ivory pb-24
         <div id="booking-flow">
           <div class="text-center">
             <p class="eyebrow">پرو اول رایگان، بدون هیچ تعهدی</p>
-            <h1 id="bk-title" class="text-[30px] font-light md:text-[46px]">وقت پرو خصوصی‌ات را <span class="font-bold">رزرو کن</span></h1>
+            <h1 id="bk-title" class="text-[30px] font-medium md:text-[46px]">وقت پرو خصوصی‌ات را <span class="font-bold">رزرو کن</span></h1>
             <p class="lead">سه قدم کوتاه؛ کمتر از یک دقیقه.</p>
           </div>
 
@@ -451,7 +458,7 @@ booking_body = '''    <section class="bg-gradient-to-b from-pearl to-ivory pb-24
                 <div class="mt-8 grid gap-5 sm:grid-cols-2">
                   <div><label class="field-label" for="f-name">نام و نام خانوادگی <span class="text-error" aria-hidden="true">*</span></label><input id="f-name" class="field" autocomplete="name" required aria-describedby="f-name-err"><span id="f-name-err" class="field-err" aria-live="polite"></span></div>
                   <div><label class="field-label" for="f-mobile">شماره موبایل <span class="text-error" aria-hidden="true">*</span></label>
-                    <div class="relative"><input id="f-mobile" class="field pe-10" inputmode="tel" dir="ltr" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel" required aria-describedby="f-mobile-err"><span id="f-mobile-ok" class="absolute end-3 top-1/2 hidden -translate-y-1/2 text-sage" aria-hidden="true">✓</span></div>
+                    <div class="relative"><input id="f-mobile" class="field pe-10" inputmode="tel" dir="ltr" placeholder="09xx xxx xxxx" autocomplete="tel" required aria-describedby="f-mobile-err"><span id="f-mobile-ok" class="absolute end-3 top-1/2 hidden -translate-y-1/2 text-sage" aria-hidden="true">✓</span></div>
                     <span id="f-mobile-err" class="field-err" aria-live="polite"></span></div>
                 </div>
                 <fieldset class="mt-2">

@@ -29,7 +29,7 @@ function dressCard(d, i = 0, mode = 'row', price = 'rent') {
       ${d.isNew ? '<span class="chip absolute top-4 start-4 z-10">جدید</span>' : ''}
       <button class="heart absolute top-3 end-3 z-10 grid h-10 w-10 place-items-center rounded-full bg-ivory/95 shadow-silk transition hover:scale-105"
         data-fav="${d.id}" aria-pressed="false" aria-label="ذخیره لباس ${d.name} در علاقه‌مندی‌ها">${ICON_HEART}</button>
-      <span class="absolute bottom-4 start-4 z-[1] text-2xl font-light text-ink/30" aria-hidden="true">${d.name}</span>
+      <span class="absolute bottom-4 start-4 z-[1] rounded-full bg-ivory/90 px-4 py-1 text-base font-bold text-ink shadow-silk" aria-hidden="true">${d.name}</span>
     </div>
     <div class="flex items-start justify-between gap-3 px-1 pt-4">
       <div>
@@ -478,8 +478,9 @@ function initLightbox() {
   const show = i => {
     idx = (i + items.length) % items.length;
     const it = items[idx];
-    fig.innerHTML = `<img src="${it.dataset.src}" alt="${it.dataset.caption}" class="absolute inset-0 h-full w-full object-cover" onerror="imgFallback(this)">`;
-    fig.className = `ph ph-${(idx % 4) + 1} relative mx-auto aspect-[3/4] h-[72vh] max-w-[92vw] rounded-2xl`;
+    // object-contain و بدون نسبت ثابت: عکس مربعی یا افقی هم کامل دیده می‌شود
+    fig.innerHTML = `<img src="${it.dataset.src}" alt="${it.dataset.caption}" class="block h-auto max-h-[72vh] w-auto max-w-[92vw] rounded-2xl object-contain" onerror="imgFallback(this)">`;
+    fig.className = 'relative mx-auto';
     cap.textContent = `${it.dataset.caption} — ${fa(idx + 1)} از ${fa(items.length)}`;
   };
   const close = () => { box.classList.add('hidden'); document.body.style.overflow = ''; lastFocus && lastFocus.focus(); };

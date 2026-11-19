@@ -122,12 +122,10 @@
   .draw-check { stroke-dasharray: 24; stroke-dashoffset: 24; animation: draw 1s .2s cubic-bezier(.22,1,.36,1) forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   #grid { transition: opacity .28s cubic-bezier(.22,1,.36,1); }
+  .nav-link { @apply font-semibold; }
   .nav-link[aria-current='page'] { @apply text-gold-text; }
   .nav-link[aria-current='page']::after { content: ''; @apply mx-auto mt-0.5 block h-px w-4 bg-gold; }
 
-  .masonry { column-gap: 1rem; columns: 2; }
-  @media (min-width: 768px) { .masonry { columns: 3; } }
-  .masonry > * { break-inside: avoid; margin-bottom: 1rem; }
 }
 
 /* اگر کاربر حرکت کمتر خواسته، همه انیمیشن‌ها خاموش */
